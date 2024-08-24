@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getComputerChoice(){
+            chooser = Math.random() * (3 - 0) + 0
+            chooser = Math.trunc(chooser)
+
+            if (chooser == 0){
+                return "rock"
+            }
+            else if(chooser == 1){
+                return "paper"
+            }
+            else {
+                return "scissors"
+            }
+        }
+
+        function getHumanChoice(){
+            choice = prompt()
+            choice = choice.toLowerCase()
+            return choice
+        }
+
+        function playRound(getComputerChoice, getHumanChoice){
+            if (getHumanChoice == "rock"){
+                if (getComputerChoice == "rock"){
+                    console.log("Tie")
+                }
+                else if (getComputerChoice == "paper"){
+                    console.log("You Lose! Paper beats Rock")
+                }
+                else if (getComputerChoice == "scissors"){
+                    console.log("You Win! Rock beats Scissors")
+                }
+            }
+
+
+
+
+        }
+
+        let humanScore = 0
+        let computerScore = 0
+
+    </script>
+    
+</body>
+
+
+</html>
