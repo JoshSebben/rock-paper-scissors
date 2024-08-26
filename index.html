@@ -8,6 +8,9 @@
 
 <body>
     <script>
+        let humanScore = 0
+        let computerScore = 0
+
         function getComputerChoice(){
             chooser = Math.random() * (3 - 0) + 0
             chooser = Math.trunc(chooser)
@@ -24,7 +27,7 @@
         }
 
         function getHumanChoice(){
-            choice = prompt()
+            choice = prompt("Choose Rock, Paper, or Scissors")
             choice = choice.toLowerCase()
             return choice
         }
@@ -33,22 +36,71 @@
             if (getHumanChoice == "rock"){
                 if (getComputerChoice == "rock"){
                     console.log("Tie")
+                    return 0
                 }
                 else if (getComputerChoice == "paper"){
                     console.log("You Lose! Paper beats Rock")
+                    return 2
                 }
                 else if (getComputerChoice == "scissors"){
                     console.log("You Win! Rock beats Scissors")
+                    return 1
                 }
             }
-
-
-
-
+            else if (getHumanChoice == "paper"){
+                if (getComputerChoice == "rock"){
+                    console.log("You Win! Paper beats Rock")
+                    return 1
+                }
+                else if (getComputerChoice == "paper"){
+                    console.log("Tie")
+                    return 0
+                }
+                else if (getComputerChoice == "scissors"){
+                    console.log("You Lose! Scissors beats Paper")
+                    return 2
+                }
+            }
+            else if (getHumanChoice == "scissors"){
+                if (getComputerChoice == "rock"){
+                    console.log("You Lose! Rock beats Scissors")
+                    return 2
+                }
+                else if (getComputerChoice == "paper"){
+                    console.log("You Win! Scissors beats Paper")
+                    return 1
+                }
+                else if (getComputerChoice == "scissors"){
+                    console.log("Tie")
+                    return 0
+                }
+            }
         }
 
-        let humanScore = 0
-        let computerScore = 0
+        function playGame(){
+            for (let i = 1; i < 6; i++) {
+                humanChoice = getHumanChoice()
+                computerChoice = getComputerChoice()
+
+                let points = playRound(computerChoice, humanChoice)
+                console.log("Game " + i + ":")
+                console.log("You Chose: " + humanChoice)
+                console.log("Opponent Chose: " + computerChoice)
+
+                if (points == 1){
+                    humanScore++
+                }
+                else if (points == 2){
+                    computerScore++
+                } 
+            
+                console.log("Your Score: " + humanScore)
+                console.log("Opponents Score: " + computerScore)
+            }
+        }
+
+        playGame()
+
 
     </script>
     
