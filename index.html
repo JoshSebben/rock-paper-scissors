@@ -82,11 +82,12 @@
                 humanChoice = getHumanChoice()
                 computerChoice = getComputerChoice()
 
-                let points = playRound(computerChoice, humanChoice)
+                
                 console.log("Game " + i + ":")
                 console.log("You Chose: " + humanChoice)
                 console.log("Opponent Chose: " + computerChoice)
-
+                let points = playRound(computerChoice, humanChoice)
+                
                 if (points == 1){
                     humanScore++
                 }
